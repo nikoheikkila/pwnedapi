@@ -1,0 +1,24 @@
+[[source]]
+
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+
+[packages]
+
+requests = "*"
+
+
+[dev-packages]
+
+pytest = "*"
+"autopep8" = "*"
+mypy = "*"
+"flake8" = "*"
+tox-pipenv = "*"
+
+
+[requires]
+
+python_version = "3.6"
