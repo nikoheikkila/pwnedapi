@@ -1,5 +1,5 @@
 init:
-	pip install pipenv --user --upgrade
+	pip install pipenv --upgrade
 	pipenv install --dev --skip-lock
 
 test:
