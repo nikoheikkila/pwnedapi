@@ -50,7 +50,7 @@ class TestPassword():
         very little timeout value."""
 
         with pytest.raises(RequestException, message="API request timed out."):
-            password = Password(self.passwords["weak"], read_timeout=0.01)
+            password = Password(self.passwords["weak"], read_timeout=0.001)
             password.is_pwned()
 
     def test_invalid_api_url(self):
