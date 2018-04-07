@@ -4,13 +4,8 @@ python:
   - '3.6'
   - 3.7-dev
 install: make
+script:
+  - make lint
+  - make coverage
+  - codecov
 cache: pip
-jobs:
-  include:
-    - stage: test
-      script:
-        - make lint
-        - make coverage
-    - stage: coverage
-      python: '3.6'
-      script: codecov
