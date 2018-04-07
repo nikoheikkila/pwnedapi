@@ -17,6 +17,7 @@ pytest = "*"
 mypy = "*"
 "flake8" = "*"
 tox-pipenv = "*"
+pytest-cov = "*"
 
 
 [requires]
