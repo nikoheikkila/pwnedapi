@@ -1,8 +1,9 @@
 """setup module"""
-from setuptools import setup, find_packages
-import os
-
+from setuptools import setup
 from pwnedapi.version import VERSION
+
+with open("README.md") as f:
+    readme = f.read()
 
 setup(
     name="pwnedapi",
@@ -12,14 +13,14 @@ setup(
     author="Niko Heikkilä",
     author_email="yo@nikoheikkila.fi",
     license="MIT",
-    scripts=[
-        "pwnedapi/Password.py"
-    ],
+    packages=["pwnedapi"],
+    include_package_data=True,
     python_requires='>=3.6',
-    packages=find_packages(),
     zip_safe=False,
     keywords=["passwords", "pwned", "security"],
     project_urls={
         "Source Code": "http://github.com/nikoheikkila/pwnedapi",
-    }
+    },
+    install_requires=["requests"],
+    long_description=readme
 )
