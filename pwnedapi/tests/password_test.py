@@ -27,9 +27,8 @@ class TestPassword():
     def test_non_str_password(self):
         """Test against a non-string password."""
 
-        with pytest.raises(PasswordException) as error:
+        with pytest.raises(PasswordException, message="Password must be a string."):
             password = Password(self.passwords["integers"])
-            assert error == "Password must be a string."
 
     def test_pwned_password(self):
         """Test against weak password
@@ -50,16 +49,14 @@ class TestPassword():
         """Test that request can fail with
         very little timeout value."""
 
-        with pytest.raises(RequestException) as error:
+        with pytest.raises(RequestException, message="API request timed out."):
             password = Password(self.passwords["weak"], read_timeout=0.01)
             password.is_pwned()
-            assert error == "API request timed out."
 
     def test_invalid_api_url(self):
         """Test that request can fail with invalid API URL."""
 
-        with pytest.raises(RequestException) as error:
+        with pytest.raises(RequestException, message="API request failed."):
             password = Password(self.passwords["weak"])
             password.API_URL = self.BAD_URL
             password.is_pwned()
-            assert error == "API request failed."
