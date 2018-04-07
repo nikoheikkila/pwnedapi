@@ -3,9 +3,9 @@
 import requests
 import hashlib
 
-from version import VERSION
-from exceptions.PasswordException import PasswordException
-from exceptions.RequestException import RequestException
+from pwnedapi.version import VERSION
+from pwnedapi.exceptions.PasswordException import PasswordException
+from pwnedapi.exceptions.RequestException import RequestException
 from requests.exceptions import Timeout
 
 
@@ -30,7 +30,12 @@ class Password():
         "User-Agent": USER_AGENT
     }
 
-    def __init__(self, password: str, request_headers: dict = {}, read_timeout: int = 10) -> None:
+    def __init__(
+        self,
+        password: str,
+        request_headers: dict = {},
+        read_timeout: int = 10
+    ) -> None:
 
         if not isinstance(password, str):
             raise PasswordException("Password must be a string.")
@@ -65,9 +70,12 @@ class Password():
         return 0
 
     def make_request(self) -> requests.Response:
+        url = self.API_URL + self.hashed_password_prefix()
+
         try:
             response = requests.get(
-                self.API_URL + self.hashed_password_prefix(), headers=self.request_headers,
+                url,
+                headers=self.request_headers,
                 timeout=self.read_timeout)
         except Timeout as error:
             raise RequestException("API request timed out.")

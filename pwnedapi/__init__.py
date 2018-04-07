@@ -1,2 +1,1 @@
-import exceptions
-from Password import Password
+from pwnedapi.Password import Password

@@ -1,2 +1,2 @@
-from PasswordException import PasswordException
-from RequestException import RequestException
+from pwnedapi.exceptions.PasswordException import PasswordException
+from pwnedapi.exceptions.RequestException import RequestException

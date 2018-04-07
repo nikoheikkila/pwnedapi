@@ -3,10 +3,10 @@ init:
 	pipenv install --dev --skip-lock
 
 test:
-	PYTHONPATH=$(PWD)/pwnedapi pipenv run pytest
+	pipenv run pytest
 
 lint:
-	pipenv run flake8 Password
+	pipenv run flake8 --ignore F401 pwnedapi
 
 coverage:
-	PYTHONPATH=$(PWD)/pwnedapi pipenv run pytest --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov-report html --cov=pwnedapi
+	pipenv run pytest --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov-report html --cov=pwnedapi pwnedapi

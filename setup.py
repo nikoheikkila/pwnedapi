@@ -13,7 +13,7 @@ setup(
     author="Niko Heikkilä",
     author_email="yo@nikoheikkila.fi",
     license="MIT",
-    packages=["pwnedapi"],
+    packages=["pwnedapi", "pwnedapi.exceptions"],
     include_package_data=True,
     python_requires='>=3.6',
     zip_safe=False,

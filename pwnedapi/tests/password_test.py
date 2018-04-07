@@ -4,9 +4,9 @@ import random
 import string
 import pytest
 
-from Password import Password
-from exceptions.PasswordException import PasswordException
-from exceptions.RequestException import RequestException
+from pwnedapi.Password import Password
+from pwnedapi.exceptions.PasswordException import PasswordException
+from pwnedapi.exceptions.RequestException import RequestException
 
 
 class TestPassword():
@@ -14,7 +14,11 @@ class TestPassword():
     BAD_URL = "https://api.pwnedpasswords.com/nope/"
 
     def generate_random_password(self, length: int) -> str:
-        return ''.join(random.choice(string.ascii_lowercase + string.digits) for _ in range(length))
+        return ''.join(
+            random.choice(
+                string.ascii_lowercase + string.digits
+            ) for _ in range(length)
+        )
 
     @pytest.fixture(autouse=True)
     def setup(self):
@@ -27,8 +31,11 @@ class TestPassword():
     def test_non_str_password(self):
         """Test against a non-string password."""
 
-        with pytest.raises(PasswordException, message="Password must be a string."):
-            password = Password(self.passwords["integers"])
+        with pytest.raises(
+            PasswordException,
+            message="Password must be a string."
+        ):
+            Password(self.passwords["integers"])
 
     def test_pwned_password(self):
         """Test against weak password
