@@ -2,7 +2,7 @@
 from setuptools import setup, find_packages
 import os
 
-from version import VERSION
+from pwnedapi.version import VERSION
 
 setup(
     name="pwnedapi",
@@ -13,7 +13,7 @@ setup(
     author_email="yo@nikoheikkila.fi",
     license="MIT",
     scripts=[
-        "Password.py"
+        "pwnedapi/Password.py"
     ],
     python_requires='>=3.6',
     packages=find_packages(),

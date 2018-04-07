@@ -1,4 +1,4 @@
 [run]
 omit =
-    exceptions/*
-    tests/*
+    pwnedapi/exceptions/*
+    pwnedapi/tests/*

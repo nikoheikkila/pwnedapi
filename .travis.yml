@@ -1,0 +1,16 @@
+sudo: false
+language: python
+python:
+  - '3.6'
+  - 3.7-dev
+install: make
+cache: pip
+jobs:
+  include:
+    - stage: test
+      script:
+        - make lint
+        - make coverage
+    - stage: coverage
+      python: '3.6'
+      script: codecov

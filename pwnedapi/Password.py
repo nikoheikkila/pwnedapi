@@ -4,8 +4,8 @@ import requests
 import hashlib
 
 from version import VERSION
-from exceptions.RequestException import RequestException
 from exceptions.PasswordException import PasswordException
+from exceptions.RequestException import RequestException
 from requests.exceptions import Timeout
 
 
@@ -33,7 +33,7 @@ class Password():
     def __init__(self, password: str, request_headers: dict = {}, read_timeout: int = 10) -> None:
 
         if not isinstance(password, str):
-            raise PasswordException("Password must be a string")
+            raise PasswordException("Password must be a string.")
 
         self.password = password
         self.DEFAULT_REQUEST_HEADERS.update(
