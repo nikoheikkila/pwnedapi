@@ -1,10 +1,16 @@
 # `pwnedapi` (Have I Been Pwned)
 
+[![Build Status](https://travis-ci.org/nikoheikkila/pwnedapi.svg?branch=master)](https://travis-ci.org/nikoheikkila/pwnedapi)
+
 A small utility class to leverage Troy Hunt's [_Have I Been Pwned API v2_](https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange) and the _k-Anonymity_ model. Inspired by Phil Nash's Ruby gem [_pwned_](https://philnash.github.io/pwned/).
 
 ## Installation
 
 ```bash
+# From repository
+pipenv install pwnedapi
+
+# Locally after cloning
 python setup.py install
 ```
 
@@ -22,6 +28,10 @@ In its simplest form you'll only need to use two methods. Will probably add more
 Your password has been pwned 2 times.
 >>>
 ```
+
+You can also scan a file of passwords, and export results in any format supported by the `tablib` library.
+
+
 
 ## Support
 

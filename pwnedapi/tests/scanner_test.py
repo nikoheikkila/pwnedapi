@@ -22,14 +22,12 @@ def tempfile():
 
 @pytest.fixture()
 def emptyfile():
-    tmpfile = NamedTemporaryFile()
-    tmpfile.write(str.encode(""))
-    return tmpfile.name
+    return NamedTemporaryFile().name
 
 
 def test_export_as(tempfile):
     scanner = Scanner()
-    results = scanner.scan(tempfile)
+    results = scanner.scan(tempfile).data
 
     assert results.height == 3
     assert results.width == 2
@@ -47,5 +45,18 @@ def test_export_as(tempfile):
 
 
 def test_scan_empty_file(emptyfile):
-    with pytest.raises(IOError, message=f"File {emptyfile} is empty."):
-        Scanner().scan(emptyfile)
+    scanner = Scanner()
+
+    with pytest.raises(OSError, message=f"File {emptyfile} is empty."):
+        scanner.scan(emptyfile)
+
+
+def test_scan_non_existent_file():
+    data_file = "foo"
+    scanner = Scanner()
+
+    if os.path.isfile(data_file):
+        os.remove(data_file)
+
+    with pytest.raises(FileNotFoundError):
+        scanner.scan(data_file)

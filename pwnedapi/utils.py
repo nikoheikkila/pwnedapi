@@ -33,7 +33,7 @@ class Scanner():
         with open(output_file, mode) as o:
             o.write(data)
 
-    def scan(self, filename: str, sleep_time: float = 0.2) -> tablib.Dataset:
+    def scan(self, filename: str, sleep_time: float = 0.2):
         """Scans password data from file.
         WARNING: Depending on the size of the file
         this might take a *long* time depending on the
@@ -42,13 +42,10 @@ class Scanner():
 
         lines = [line.rstrip("\n") for line in open(filename)]
 
-        if not lines:
-            raise IOError(f"File {filename} is empty.")
-
         for line in lines:
             password = Password(line)
             if password.is_pwned():
                 self.data.append([password.get_value(), password.pwned_count])
             sleep(sleep_time)
 
-        return self.data
+        return self
