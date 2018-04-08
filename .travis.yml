@@ -9,3 +9,9 @@ script:
   - make coverage
   - codecov
 cache: pip
+matrix:
+  include:
+    - python: '3.6'
+    - python: 3.7-dev
+  allow_failures:
+    - python: 3.7-dev
