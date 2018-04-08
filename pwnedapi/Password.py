@@ -49,6 +49,9 @@ class Password():
         self.hashed_password = self.hash_password()
         self.pwned_count = 0
 
+    def get_value(self) -> str:
+        return self.password
+
     def hash_password(self) -> str:
         h = hashlib.sha1()
         h.update(self.password.encode(self.HASH_ENCODING))
