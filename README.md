@@ -1,6 +1,7 @@
 # `pwnedapi` (Have I Been Pwned)
 
 [![Build Status](https://travis-ci.org/nikoheikkila/pwnedapi.svg?branch=master)](https://travis-ci.org/nikoheikkila/pwnedapi)
+[![codecov](https://codecov.io/gh/nikoheikkila/pwnedapi/branch/master/graph/badge.svg)](https://codecov.io/gh/nikoheikkila/pwnedapi)
 
 A small utility class to leverage Troy Hunt's [_Have I Been Pwned API v2_][hibp] and the _k-Anonymity_ model. Inspired by Phil Nash's Ruby gem [_pwned_][pwned].
 
@@ -29,7 +30,7 @@ Your password has been pwned 2 times.
 >>>
 ```
 
-You can also scan a file of passwords, and export results in any format supported by the `tablib` library.
+You can also scan a file of passwords, and export results in any format supported by the [`tablib`][tablib] library.
 
 ```python
 >>> from pwnedapi import Scanner
