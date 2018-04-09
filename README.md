@@ -2,6 +2,8 @@
 
 [![Build Status](https://travis-ci.org/nikoheikkila/pwnedapi.svg?branch=master)](https://travis-ci.org/nikoheikkila/pwnedapi)
 [![codecov](https://codecov.io/gh/nikoheikkila/pwnedapi/branch/master/graph/badge.svg)](https://codecov.io/gh/nikoheikkila/pwnedapi)
+[![pipeline status](https://gitlab.com/nikoheikkila/pwnedapi/badges/master/pipeline.svg)](https://gitlab.com/nikoheikkila/pwnedapi/commits/master)
+[![coverage report](https://gitlab.com/nikoheikkila/pwnedapi/badges/master/coverage.svg)](https://gitlab.com/nikoheikkila/pwnedapi/commits/master)
 
 A small utility class to leverage Troy Hunt's [_Have I Been Pwned API v2_][hibp] and the _k-Anonymity_ model. Inspired by Phil Nash's Ruby gem [_pwned_][pwned].
 

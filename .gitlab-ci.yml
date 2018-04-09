@@ -1,0 +1,11 @@
+image: 'python:latest'
+
+before_script:
+  - python -V
+  - pip -V
+  - make
+
+Run Tests:
+  script:
+    - make lint
+    - make coverage
