@@ -1,18 +1,14 @@
 [[source]]
-
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
-
 [packages]
-
 requests = "*"
 tablib = "*"
-
+twine = "*"
 
 [dev-packages]
-
 pytest = "*"
 "autopep8" = "*"
 mypy = "*"
@@ -21,7 +17,5 @@ tox-pipenv = "*"
 codecov = "*"
 pytest-cov = "*"
 
-
 [requires]
-
 python_version = "3.6"

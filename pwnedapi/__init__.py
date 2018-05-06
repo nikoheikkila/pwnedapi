@@ -1,2 +1,2 @@
-from pwnedapi.Password import Password
-from pwnedapi.utils import Scanner
+from .Password import Password
+from .utils import Scanner

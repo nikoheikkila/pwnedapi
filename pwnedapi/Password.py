@@ -3,7 +3,7 @@
 import requests
 import hashlib
 
-from pwnedapi.meta import version, github
+from pwnedapi.__version__ import __version__
 from pwnedapi.exceptions.PasswordException import PasswordException
 from pwnedapi.exceptions.RequestException import RequestException
 from requests.exceptions import Timeout
@@ -24,7 +24,7 @@ class Password():
     # Hashed need to be encoded before sending
     HASH_ENCODING = "utf-8"
 
-    USER_AGENT = f"PyPwned v{version} ({github})"
+    USER_AGENT = f"pwnedapi v{__version__}"
 
     DEFAULT_REQUEST_HEADERS = {
         "User-Agent": USER_AGENT
