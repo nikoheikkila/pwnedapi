@@ -57,7 +57,7 @@ class UploadCommand(Command):
             rmtree(os.path.join(here, "dist"))
         except OSError:
             pass
-        
+
         self.status("Building source and wheel (universal) distribution")
         os.system("{} setup.py sdist bdist_wheel --universal".format(sys.executable))
 
@@ -93,9 +93,7 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: Implementation :: CPython',
-        'Programming Language :: Python :: Implementation :: PyPy'
+        'Programming Language :: Python :: Implementation :: PyPy',
     ],
-    cmdclass={
-        "upload": UploadCommand
-    }
+    cmdclass={"upload": UploadCommand},
 )

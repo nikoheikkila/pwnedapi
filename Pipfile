@@ -1,21 +1,28 @@
 [[source]]
+
 url = "https://pypi.python.org/simple"
 verify_ssl = true
 name = "pypi"
 
+
 [packages]
+
 requests = "*"
 tablib = "*"
 twine = "*"
 
+
 [dev-packages]
+
 pytest = "*"
 "autopep8" = "*"
 mypy = "*"
-"flake8" = "*"
 tox-pipenv = "*"
 codecov = "*"
 pytest-cov = "*"
+pylama = "*"
+eradicate = "*"
+
 
 [requires]
 python_version = "3.5"

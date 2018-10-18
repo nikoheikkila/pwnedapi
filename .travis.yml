@@ -1,13 +1,11 @@
-sudo: false
 language: python
+python:
+  - 3.5
+  - 3.6
+
 install: make
+
 script:
   - make lint
   - make coverage
-  - codecov
 cache: pip
-matrix:
-  include:
-    - python: '3.5'
-    - python: '3.6'
-    - python: '3.7'

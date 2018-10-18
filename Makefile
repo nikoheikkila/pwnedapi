@@ -3,13 +3,14 @@ init:
 	pipenv install --dev --skip-lock
 
 test:
-	pipenv run pytest
+	PYTHONPATH=$(PWD) pipenv run pytest
 
 lint:
-	pipenv run flake8 --ignore F401 pwnedapi
+	pipenv run pylama --async
 
 coverage:
 	PYTHONPATH=$(PWD) pipenv run pytest --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov-report html --cov=pwnedapi
+	codecov --required
 
 publish:
 	pipenv run python setup.py install
