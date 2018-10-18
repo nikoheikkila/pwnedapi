@@ -6,7 +6,7 @@ test:
 	PYTHONPATH=$(PWD) pipenv run pytest
 
 lint:
-	pipenv run flake8 --ignore F401 pwnedapi
+	pipenv run pylama --async
 
 coverage:
 	PYTHONPATH=$(PWD) pipenv run pytest --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov-report html --cov=pwnedapi

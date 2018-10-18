@@ -9,7 +9,7 @@ from pwnedapi.exceptions.RequestException import RequestException
 from requests.exceptions import Timeout
 
 
-class Password():
+class Password:
     """This class represents a password.
     It does all the work of talking to the
     Pwned Passwords API to find out if the
@@ -26,23 +26,15 @@ class Password():
 
     USER_AGENT = f"pwnedapi v{__version__}"
 
-    DEFAULT_REQUEST_HEADERS = {
-        "User-Agent": USER_AGENT
-    }
+    DEFAULT_REQUEST_HEADERS = {"User-Agent": USER_AGENT}
 
-    def __init__(
-        self,
-        password: str,
-        request_headers: dict = {},
-        read_timeout: int = 10
-    ) -> None:
+    def __init__(self, password: str, request_headers: dict = {}, read_timeout: int = 10) -> None:
 
         if not isinstance(password, str):
             raise PasswordException("Password must be a string.")
 
         self.password = password
-        self.DEFAULT_REQUEST_HEADERS.update(
-            request_headers)
+        self.DEFAULT_REQUEST_HEADERS.update(request_headers)
         self.request_headers = self.DEFAULT_REQUEST_HEADERS
         self.read_timeout = read_timeout
 
@@ -77,10 +69,8 @@ class Password():
 
         try:
             response = requests.get(
-                url,
-                headers=self.request_headers,
-                timeout=self.read_timeout)
-        except Timeout as error:
+                url, headers=self.request_headers, timeout=self.read_timeout)
+        except Timeout:
             raise RequestException("API request timed out.")
 
         if response.status_code != 200 or not response.content:
