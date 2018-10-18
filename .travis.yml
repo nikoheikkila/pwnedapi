@@ -8,5 +8,4 @@ install: make
 script:
   - make lint
   - make coverage
-  - codecov
 cache: pip

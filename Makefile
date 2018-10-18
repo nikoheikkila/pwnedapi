@@ -10,6 +10,7 @@ lint:
 
 coverage:
 	PYTHONPATH=$(PWD) pipenv run pytest --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov-report html --cov=pwnedapi
+	codecov --required
 
 publish:
 	pipenv run python setup.py install
