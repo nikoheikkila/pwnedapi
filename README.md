@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.org/nikoheikkila/pwnedapi.svg?branch=master)](https://travis-ci.org/nikoheikkila/pwnedapi)
 [![codecov](https://codecov.io/gh/nikoheikkila/pwnedapi/branch/master/graph/badge.svg)](https://codecov.io/gh/nikoheikkila/pwnedapi)
-[![pipeline status](https://gitlab.com/nikoheikkila/pwnedapi/badges/master/pipeline.svg)](https://gitlab.com/nikoheikkila/pwnedapi/commits/master)
-[![coverage report](https://gitlab.com/nikoheikkila/pwnedapi/badges/master/coverage.svg)](https://gitlab.com/nikoheikkila/pwnedapi/commits/master)
 
 A small utility class to leverage Troy Hunt's [_Have I Been Pwned API v2_][hibp] and the _k-Anonymity_ model. Inspired by Phil Nash's Ruby gem [_pwned_][pwned].
 
@@ -43,13 +41,9 @@ You can also scan a file of passwords, and export results in any format supporte
 '[{"Password": "dog", "Leak Count": 28348}, {"Password": "cat", "Leak Count": 26354}, {"Password": "somepass", "Leak Count": 657}]'
 ```
 
-## Support
+## Contributing
 
-This is my first official Python package so if something is off feel free to send a PR. :fist:
-
-# TODO
-
-- [ ] Add password change form validators to Django and Flask
+Check the source code and issues from this repository, and should anything interesting pop out feel free to open a pull request. Before your changes will be merged make sure that Travis CI pipeline is green and code coverage is on acceptable level. GitHub takes care of these eventually but to save time always consider running the tests locally before pushing.
 
 [hibp]: https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange
 [pwned]: https://philnash.github.io/pwned/
