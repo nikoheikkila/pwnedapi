@@ -4,4 +4,8 @@ from .validators import PwnedAPIValidator
 
 
 class SimplePwnedAPIForm(forms.Form):
-    password = forms.CharField(label=_('Password'), widget=forms.PasswordInput, validators=[PwnedAPIValidator()])
+    password = forms.CharField(
+        label=_('Password'),
+        widget=forms.PasswordInput,
+        validators=[PwnedAPIValidator()]
+    )
