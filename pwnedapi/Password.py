@@ -6,7 +6,7 @@ import hashlib
 from pwnedapi.__version__ import __version__
 from pwnedapi.exceptions.PasswordException import PasswordException
 from pwnedapi.exceptions.RequestException import RequestException
-from requests.exceptions import Timeout
+from requests.exceptions import ConnectionError, Timeout
 
 
 class Password:
@@ -72,7 +72,8 @@ class Password:
                 url, headers=self.request_headers, timeout=self.read_timeout)
         except Timeout:
             raise RequestException("API request timed out.")
-
+        except ConnectionError:
+            raise RequestException("API request failed.")
         if response.status_code != 200 or not response.content:
             raise RequestException("API request failed.")
 
