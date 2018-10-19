@@ -47,7 +47,7 @@ def test_export_as(tempfile):
 def test_scan_empty_file(emptyfile):
     scanner = Scanner()
 
-    with pytest.raises(OSError, message=f"File {emptyfile} is empty."):
+    with pytest.raises(OSError, message="File {} is empty.".format(emptyfile)):
         scanner.scan(emptyfile)
 
 

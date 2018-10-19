@@ -24,7 +24,7 @@ class Password:
     # Hashed need to be encoded before sending
     HASH_ENCODING = "utf-8"
 
-    USER_AGENT = f"pwnedapi v{__version__}"
+    USER_AGENT = "pwnedapi v{}".format(__version__)
 
     DEFAULT_REQUEST_HEADERS = {"User-Agent": USER_AGENT}
 

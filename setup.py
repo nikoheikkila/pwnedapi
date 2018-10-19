@@ -14,7 +14,7 @@ DESCRIPTION = "Library for easily interfacing with Have I Been Pwned API v2."
 URL = "https://github.com/nikoheikkila/pwnedapi"
 EMAIL = "yo@nikoheikkila.fi"
 AUTHOR = "Niko Heikkilä"
-REQUIRES_PYTHON = ">=3.6.0"
+REQUIRES_PYTHON = ">=3.5.0"
 VERSION = None
 
 # Required packages
@@ -43,7 +43,7 @@ class UploadCommand(Command):
     @staticmethod
     def status(s):
         """Bolds given text"""
-        print(f"\033[1m{s}\033[0m")
+        print("\033[1m{}\033[0m".format(s))
 
     def initialize_options(self):
         pass
@@ -59,13 +59,13 @@ class UploadCommand(Command):
             pass
 
         self.status("Building source and wheel (universal) distribution")
-        os.system(f"{sys.executable} setup.py sdist bdist_wheel --universal")
+        os.system("{} setup.py sdist bdist_wheel --universal".format(sys.executable))
 
         self.status("Uploading the package to PyPi via Twine...")
         os.system("twine upload dist/*")
 
         self.status("Pushing git tags...")
-        os.system(f"git tag v{about['__version__']}")
+        os.system("git tag v{}".format(about['version']))
         os.system("git push --tags")
 
         sys.exit()
@@ -91,7 +91,7 @@ setup(
         'License :: OSI Approved :: MIT License',
         'Programming Language :: Python',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.6',
+        'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: Implementation :: CPython',
         'Programming Language :: Python :: Implementation :: PyPy',
     ],
