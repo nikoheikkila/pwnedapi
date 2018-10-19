@@ -1,8 +1,10 @@
 import pytest
 import json
 import os
+import responses
 
 from tempfile import NamedTemporaryFile
+from pwnedapi.Password import Password
 from pwnedapi.utils import Scanner
 
 
@@ -24,8 +26,29 @@ def tempfile():
 def emptyfile():
     return NamedTemporaryFile().name
 
-
+@responses.activate
 def test_export_as(tempfile):
+    dog = Password("dog")
+    cat = Password("cat")
+    cuckoo = Password("cuckoo")
+    responses.add(
+        responses.GET,
+        url=Password.API_URL + dog.hashed_password_prefix(),
+        body="{}:1\r\n".format(dog.hashed_password_suffix()),
+        status=200,
+    )
+    responses.add(
+        responses.GET,
+        url=Password.API_URL + cat.hashed_password_prefix(),
+        body="{}:2\r\n".format(cat.hashed_password_suffix()),
+        status=200,
+    )
+    responses.add(
+        responses.GET,
+        url=Password.API_URL + cuckoo.hashed_password_prefix(),
+        body="{}:3\r\n".format(cuckoo.hashed_password_suffix()),
+        status=200,
+    )
     scanner = Scanner()
     results = scanner.scan(tempfile).data
 
