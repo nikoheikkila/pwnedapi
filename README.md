@@ -1,5 +1,6 @@
 # `pwnedapi` (Have I Been Pwned)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/5c1b1ede06564c7b8f857874aaeb4d13)](https://app.codacy.com/app/nikoheikkila/pwnedapi?utm_source=github.com&utm_medium=referral&utm_content=nikoheikkila/pwnedapi&utm_campaign=Badge_Grade_Settings)
 [![Build Status](https://travis-ci.org/nikoheikkila/pwnedapi.svg?branch=master)](https://travis-ci.org/nikoheikkila/pwnedapi)
 [![codecov](https://codecov.io/gh/nikoheikkila/pwnedapi/branch/master/graph/badge.svg)](https://codecov.io/gh/nikoheikkila/pwnedapi)
 
