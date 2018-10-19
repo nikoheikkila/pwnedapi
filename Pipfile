@@ -22,7 +22,3 @@ codecov = "*"
 pytest-cov = "*"
 pylama = "*"
 eradicate = "*"
-
-
-[requires]
-python_version = "3.5"
