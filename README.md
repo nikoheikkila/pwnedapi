@@ -35,9 +35,9 @@ on cli:
 
 ```bash
 $ pwned check
-... Password: ****
-... Repeat for confirmation: ****
-... Your password has been pwned 2 times.
+Password: ****
+Repeat for confirmation: ****
+Your password has been pwned 2 times.
 ```
 
 You can also scan a file of passwords, and export results in any format supported by the [`tablib`][tablib] library.
@@ -55,10 +55,10 @@ on cli:
 
 ```bash
 $ pwned scan passwords.txt
-... Password,Leak Count
-... dog,30267
-... cat,27732
-... cuckoo,2717
+Password,Leak Count
+dog,30267
+cat,27732
+cuckoo,2717
 ```
 
 ## Contributing
