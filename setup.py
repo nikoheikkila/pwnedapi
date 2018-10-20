@@ -5,8 +5,10 @@ import io
 import os
 import sys
 
+from subprocess import Popen
 from shutil import rmtree
 from setuptools import find_packages, setup, Command
+from pwnedapi.__version__ import get_version
 
 # Meta-data
 NAME = "pwnedapi"
@@ -28,8 +30,7 @@ with io.open(os.path.join(here, 'README.md'), encoding="utf-8") as f:
 about = {}
 
 if not VERSION:
-    with open(os.path.join(here, NAME, '__version__.py')) as f:
-        exec(f.read(), about)
+    about["__version__"] = get_version()
 else:
     about["__version__"] = VERSION
 
@@ -59,14 +60,14 @@ class UploadCommand(Command):
             pass
 
         self.status("Building source and wheel (universal) distribution")
-        os.system("{} setup.py sdist bdist_wheel --universal".format(sys.executable))
+        Popen("{} setup.py sdist bdist_wheel --universal".format(sys.executable), shell=True).wait()
 
         self.status("Uploading the package to PyPi via Twine...")
-        os.system("twine upload dist/*")
+        Popen("twine upload dist/*", shell=True).wait()
 
         self.status("Pushing git tags...")
-        os.system("git tag v{}".format(about['__version__']))
-        os.system("git push --tags")
+        Popen("git tag v{}".format(about['__version__']), shell=True).wait()
+        Popen("git push --tags", shell=True).wait()
 
         sys.exit()
 

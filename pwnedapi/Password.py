@@ -45,7 +45,7 @@ class Password:
         return self.password
 
     def hash_password(self) -> str:
-        h = hashlib.sha1()
+        h = hashlib.sha256()
         h.update(self.password.encode(self.HASH_ENCODING))
 
         return h.hexdigest().upper()
