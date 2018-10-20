@@ -7,6 +7,7 @@ import sys
 
 from shutil import rmtree
 from setuptools import find_packages, setup, Command
+from pwnedapi.__version__ import get_version
 
 # Meta-data
 NAME = "pwnedapi"
@@ -28,8 +29,7 @@ with io.open(os.path.join(here, 'README.md'), encoding="utf-8") as f:
 about = {}
 
 if not VERSION:
-    with open(os.path.join(here, NAME, '__version__.py')) as f:
-        exec(f.read(), about)
+    about["__version__"] = get_version()
 else:
     about["__version__"] = VERSION
 

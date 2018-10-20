@@ -10,7 +10,8 @@ class Scanner():
     COLUMNS = ["Password", "Leak Count"]
     BINARY_FORMATS = ["csv", "dbf", "ods", "xls", "xlsx"]
 
-    def __init__(self, extra_cols: list = []) -> None:
+    def __init__(self, extra_cols: list = None) -> None:
+        extra_cols = extra_cols or []
         self.data = tablib.Dataset()
         self.COLUMNS.extend(extra_cols)
         self.data.headers = self.COLUMNS
@@ -18,17 +19,17 @@ class Scanner():
     def get_headers(self):
         return self.data.headers
 
-    def export(self, format: str = "csv") -> tablib.Dataset:
+    def export(self, format_type: str = "csv") -> tablib.Dataset:
         """Formats data to another."""
 
-        return self.data.export(format)
+        return self.data.export(format_type)
 
     def export_as(self, output_file: str) -> None:
         """Exports data to a file."""
 
-        format = output_file.split(".")[-1]
-        data = self.export(format)
-        mode = "wb" if format in self.BINARY_FORMATS else "w"
+        format_type = output_file.split(".")[-1]
+        data = self.export(format_type)
+        mode = "wb" if format_type in self.BINARY_FORMATS else "w"
 
         with open(output_file, mode) as o:
             o.write(data)

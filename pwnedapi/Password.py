@@ -28,7 +28,8 @@ class Password:
 
     DEFAULT_REQUEST_HEADERS = {"User-Agent": USER_AGENT}
 
-    def __init__(self, password: str, request_headers: dict = {}, read_timeout: int = 10) -> None:
+    def __init__(self, password: str, request_headers: dict = None, read_timeout: int = 10) -> None:
+        request_headers = request_headers or []
 
         if not isinstance(password, str):
             raise PasswordException("Password must be a string.")
@@ -45,7 +46,7 @@ class Password:
         return self.password
 
     def hash_password(self) -> str:
-        h = hashlib.sha1()
+        h = hashlib.sha256()
         h.update(self.password.encode(self.HASH_ENCODING))
 
         return h.hexdigest().upper()
@@ -58,9 +59,9 @@ class Password:
     def fetch_pwned_count(self) -> int:
         hash_list = self.make_request().text.split("\r\n")
 
-        for hash in hash_list:
-            if hash.startswith(self.hashed_password_suffix()):
-                return int(hash.split(":")[1])
+        for hash_entry in hash_list:
+            if hash_entry.startswith(self.hashed_password_suffix()):
+                return int(hash_entry.split(":")[1])
 
         return 0
 
