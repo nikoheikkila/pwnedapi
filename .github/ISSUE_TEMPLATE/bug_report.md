@@ -22,7 +22,7 @@ If applicable, add screenshots to help explain your problem.
 
 **Platform (please complete the following information):**
 
--   OS: [e.g. Ubuntu 18.04, Debian 8, macOS Mojave, Windows 10]
+-   OS: (e.g. Ubuntu 18.04, Debian 8, macOS Mojave, Windows 10)
 -   Python version
 -   Pipenv and/or Pip version
 

@@ -10,7 +10,8 @@ class Scanner():
     COLUMNS = ["Password", "Leak Count"]
     BINARY_FORMATS = ["csv", "dbf", "ods", "xls", "xlsx"]
 
-    def __init__(self, extra_cols: list = []) -> None:
+    def __init__(self, extra_cols: list = None) -> None:
+        list = list or []
         self.data = tablib.Dataset()
         self.COLUMNS.extend(extra_cols)
         self.data.headers = self.COLUMNS
