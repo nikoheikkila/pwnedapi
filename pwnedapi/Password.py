@@ -29,7 +29,7 @@ class Password:
     DEFAULT_REQUEST_HEADERS = {"User-Agent": USER_AGENT}
 
     def __init__(self, password: str, request_headers: dict = None, read_timeout: int = 10) -> None:
-        dict = dict or []
+        request_headers = request_headers or []
 
         if not isinstance(password, str):
             raise PasswordException("Password must be a string.")

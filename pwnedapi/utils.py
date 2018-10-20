@@ -11,7 +11,7 @@ class Scanner():
     BINARY_FORMATS = ["csv", "dbf", "ods", "xls", "xlsx"]
 
     def __init__(self, extra_cols: list = None) -> None:
-        list = list or []
+        extra_cols = extra_cols or []
         self.data = tablib.Dataset()
         self.COLUMNS.extend(extra_cols)
         self.data.headers = self.COLUMNS
