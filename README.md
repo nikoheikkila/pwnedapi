@@ -33,7 +33,7 @@ Your password has been pwned 2 times.
 
 on cli:
 
-```bash
+```console
 $ pwned check
 Password: ****
 Repeat for confirmation: ****
@@ -53,7 +53,7 @@ You can also scan a file of passwords, and export results in any format supporte
 
 on cli:
 
-```bash
+```console
 $ pwned scan passwords.txt
 Password,Leak Count
 dog,30267
