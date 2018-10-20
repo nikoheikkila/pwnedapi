@@ -58,9 +58,9 @@ class Password:
     def fetch_pwned_count(self) -> int:
         hash_list = self.make_request().text.split("\r\n")
 
-        for hash in hash_list:
-            if hash.startswith(self.hashed_password_suffix()):
-                return int(hash.split(":")[1])
+        for hash_entry in hash_list:
+            if hash_entry.startswith(self.hashed_password_suffix()):
+                return int(hash_entry.split(":")[1])
 
         return 0
 

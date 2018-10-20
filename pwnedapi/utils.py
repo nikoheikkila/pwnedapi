@@ -18,17 +18,17 @@ class Scanner():
     def get_headers(self):
         return self.data.headers
 
-    def export(self, format: str = "csv") -> tablib.Dataset:
+    def export(self, format_type: str = "csv") -> tablib.Dataset:
         """Formats data to another."""
 
-        return self.data.export(format)
+        return self.data.export(format_type)
 
     def export_as(self, output_file: str) -> None:
         """Exports data to a file."""
 
-        format = output_file.split(".")[-1]
-        data = self.export(format)
-        mode = "wb" if format in self.BINARY_FORMATS else "w"
+        format_type = output_file.split(".")[-1]
+        data = self.export(format_type)
+        mode = "wb" if format_type in self.BINARY_FORMATS else "w"
 
         with open(output_file, mode) as o:
             o.write(data)
