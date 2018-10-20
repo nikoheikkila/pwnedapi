@@ -1,5 +1,33 @@
 ### Requirements
-This example assumes that you have `Django` and `pwnedapi` installed and the Django project contains app named `django_pwnedapi`.
+* python (3.5+)
+* pip, referred as `pip3`
+### Installation
+###### This covers installing `Django`, `pwnedapi` with `pipenv` and setting up Django project/app. If you already have a Django app you may skip to the next section
+***
+* Pipenv is a package management tool with built-in virtual environment support. To install pipenv:
+`pip3 install pipenv`
+* Create an empty folder for new Django project. From that folder run:
+`pipenv install Django pwnedapi`
+* Activate virtual environment:
+`pipenv shell`
+* Create new Django project:
+`django-admin startproject django_project`
+* Create new Django app inside project folder:
+`cd django_project && django-admin startapp django_pwnedapi`
+* Add `django_pwnedapi` to Django installed apps(`django_project/settings.py`):
+```python
+INSTALLED_APPS = [
+    ...
+    'django_pwnedapi',
+]
+```
+* Include app URLs(`django_project/urls.py`):
+```python
+urlpatterns = [
+    ...
+    path('', include('django_pwnedapi.urls')),
+]
+```
 ### Validator
 File: `django_pwnedapi/validators.py`  
 ***
