@@ -1,30 +1,30 @@
 ### Requirements
 
-- python (3.5+)
-- pip, referred as `pip3`
+-   python (3.5+)
+-   pip, referred as `pip3`
 
 ### Installation
 
 **This covers installing `Django`, `pwnedapi` with `pipenv` and setting up Django project/app. If you already have a Django app you may skip to the next section**
 
----
+* * *
 
-- Pipenv is a package management tool with built-in virtual environment support. To install pipenv:  
-  `pip3 install pipenv`
+-   Pipenv is a package management tool with built-in virtual environment support. To install pipenv:  
+    `pip3 install pipenv`
 
-- Create an empty folder for new Django project. From that folder run:  
-  `pipenv install Django pwnedapi`
+-   Create an empty folder for new Django project. From that folder run:  
+    `pipenv install Django pwnedapi`
 
-- Activate virtual environment:  
-  `pipenv shell`
+-   Activate virtual environment:  
+    `pipenv shell`
 
-- Create new Django project:  
-  `django-admin startproject django_project`
+-   Create new Django project:  
+    `django-admin startproject django_project`
 
-- Create new Django app inside project folder:  
-  `cd django_project && django-admin startapp django_pwnedapi`
+-   Create new Django app inside project folder:  
+    `cd django_project && django-admin startapp django_pwnedapi`
 
-- Add `django_pwnedapi` to Django installed apps(`django_project/settings.py`):
+-   Add `django_pwnedapi` to Django installed apps(`django_project/settings.py`):
 
 ```python
 INSTALLED_APPS = [
@@ -33,7 +33,7 @@ INSTALLED_APPS = [
 ]
 ```
 
-- Include app URLs(`django_project/urls.py`):
+-   Include app URLs(`django_project/urls.py`):
 
 ```python
 urlpatterns = [
@@ -46,7 +46,7 @@ urlpatterns = [
 
 File: `django_pwnedapi/validators.py`
 
----
+* * *
 
 A Django validator is a callable that takes a value and raises `ValidationError` if it doesn’t meet some criteria, in this example - if password has been reported as seen by `pwnedapi`.  
 Code:
@@ -69,7 +69,7 @@ def pwnedapi_validator(value):
 
 File: `django_pwnedapi/forms.py`
 
----
+* * *
 
 A Django form fields can add custom validators, such as created earlier `pwnedapi_validator`
 Code:
@@ -89,7 +89,7 @@ class SimplePwnedAPIForm(forms.Form):
 
 File: `django_pwnedapi/views.py`
 
----
+* * *
 
 View has to check or create the form and return correct response.  
 Code:
@@ -115,7 +115,7 @@ def pwnedapi_view(request):
 
 File: `django_pwnedapi/urls.py`
 
----
+* * *
 
 `/pwnedapi` URL path for Django. The usual.  
 Code:
@@ -132,7 +132,7 @@ urlpatterns = [
 
 File: `django_pwnedapi/templates/django_pwnedapi/pwnedapi_form.html`
 
----
+* * *
 
 Basic template with form and success message:
 

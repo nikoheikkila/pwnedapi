@@ -60,14 +60,14 @@ class UploadCommand(Command):
             pass
 
         self.status("Building source and wheel (universal) distribution")
-        Popen("{} setup.py sdist bdist_wheel --universal".format(sys.executable), shell=True).wait()
+        Popen("{} setup.py sdist bdist_wheel --universal".format(sys.executable)).wait()
 
         self.status("Uploading the package to PyPi via Twine...")
-        Popen("twine upload dist/*", shell=True).wait()
+        Popen("twine upload dist/*").wait()
 
         self.status("Pushing git tags...")
-        Popen("git tag v{}".format(about['__version__']), shell=True).wait()
-        Popen("git push --tags", shell=True).wait()
+        Popen("git tag v{}".format(about['__version__'])).wait()
+        Popen("git push --tags").wait()
 
         sys.exit()
 

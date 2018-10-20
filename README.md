@@ -47,5 +47,7 @@ You can also scan a file of passwords, and export results in any format supporte
 Check the source code and issues from this repository, and should anything interesting pop out feel free to open a pull request. Before your changes will be merged make sure that Travis CI pipeline is green and code coverage is on acceptable level. GitHub takes care of these eventually but to save time always consider running the tests locally before pushing.
 
 [hibp]: https://haveibeenpwned.com/API/v2#SearchingPwnedPasswordsByRange
+
 [pwned]: https://philnash.github.io/pwned/
+
 [tablib]: http://docs.python-tablib.org/en/latest/
