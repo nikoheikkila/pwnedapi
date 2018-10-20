@@ -5,7 +5,6 @@ import io
 import os
 import sys
 
-from subprocess import Popen
 from shutil import rmtree
 from setuptools import find_packages, setup, Command
 from pwnedapi.__version__ import get_version
@@ -60,14 +59,14 @@ class UploadCommand(Command):
             pass
 
         self.status("Building source and wheel (universal) distribution")
-        Popen("{} setup.py sdist bdist_wheel --universal".format(sys.executable)).wait()
+        os.system("{} setup.py sdist bdist_wheel --universal".format(sys.executable))
 
         self.status("Uploading the package to PyPi via Twine...")
-        Popen("twine upload dist/*").wait()
+        os.system("twine upload dist/*")
 
         self.status("Pushing git tags...")
-        Popen("git tag v{}".format(about['__version__'])).wait()
-        Popen("git push --tags").wait()
+        os.system("git tag v{}".format(about['__version__']))
+        os.system("git push --tags")
 
         sys.exit()
 
