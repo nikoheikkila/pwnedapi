@@ -11,7 +11,7 @@ def pwnedapi_validator(value):
     if password.is_pwned():
         count = password.pwned_count
         raise ValidationError(
-            'Password has been seen %(count)d times before!',
+            'Password has been reported in Have I Been Pwned database %(count)d times before!',
             'leaked',
             params={'count': count}
         )
