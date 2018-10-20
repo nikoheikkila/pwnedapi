@@ -11,7 +11,6 @@ def cli():
 @click.password_option(help="Password, which will be checked.")
 def check(password):
     "Checks a single password if it has been pwned."
-    print('password:{}'.format(password))
     password = Password(password)
     if password.is_pwned():
         print(f"Your password has been pwned {password.pwned_count} times.")

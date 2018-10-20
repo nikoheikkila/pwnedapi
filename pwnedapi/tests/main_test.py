@@ -26,7 +26,7 @@ def test_check():
     result = runner.invoke(main.check, input='Peter\nPeter')
     assert result.exit_code == 0
     patt = \
-        r'Password: \nRepeat for confirmation: \npassword:Peter\n' \
+        r'Password: \nRepeat for confirmation: \n' \
         r'Your password has been pwned \d+ times.\n'
     assert re.match(patt, result.output)
 
