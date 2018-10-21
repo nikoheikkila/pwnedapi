@@ -20,7 +20,7 @@ def check(password: Any) -> None:
 
 @cli.command()
 @click.argument('INPUT_FILE', type=click.File('rb'))
-@click.option('--output-format', help='Output data format.', default='csv')
+@click.option('-o', '--output-format', help='Output data format.', default='csv')
 def scan(input_file: Any, output_format: str = 'csv') -> None:
     "Scan a file for pwned passwords."
     scanner = Scanner()
