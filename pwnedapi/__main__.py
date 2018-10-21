@@ -16,6 +16,8 @@ def check(password: str) -> None:
     password_inst: Password = Password(password)
     if password_inst.is_pwned():
         print("Your password has been pwned {} times.".format(password_inst.pwned_count))
+        if password_inst.pwned_count == 0:
+            print("Your password is safe.")
 
 
 @cli.command()
