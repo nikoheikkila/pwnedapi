@@ -1,8 +1,8 @@
-from tempfile import NamedTemporaryFile
 import re
+from tempfile import NamedTemporaryFile
 
-from click.testing import CliRunner
 import pytest
+from click.testing import CliRunner
 
 from pwnedapi import __main__ as main
 
