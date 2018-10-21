@@ -34,5 +34,6 @@ def test_scan(tempfile):
     runner = CliRunner()
     result = runner.invoke(main.scan, [tempfile])
     assert result.exit_code == 0
-    pattern = r'Password,Leak Count\ndog,\d+\ncat,\d+\ncuckoo,\d+\n\n'
+    pattern = r'Password,Leak Count\n{}\n\n'.format(
+        r'\n'.join([r'{},\d+'.format(x) for x in PASSWORDS]))
     assert re.match(pattern, result.output)
