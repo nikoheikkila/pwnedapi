@@ -1,0 +1,24 @@
+site_name: Pwned API
+site_description: >
+  Library for easily interfacing with Have I Been Pwned API v2
+site_author: Niko Heikkilä (@nikoheikkila)
+repo_url: https://github.com/nikoheikkila/pwnedapi
+
+nav:
+  - Introduction: index.md
+  - Usage: usage.md
+  - CLI: cli.md
+
+docs_dir: docs
+site_dir: site
+
+markdown_extensions:
+  - abbr
+  - def_list
+  - codehilite
+  - sane_lists
+  - smarty
+  - tables
+  - toc
+
+
