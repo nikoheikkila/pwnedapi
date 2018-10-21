@@ -11,6 +11,7 @@ test:
 	PYTHONPATH=$(PWD) pipenv run pytest
 
 lint:
+	pipenv run mypy --strict pwnedapi
 	pipenv run pylama --async
 
 coverage:
