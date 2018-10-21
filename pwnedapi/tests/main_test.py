@@ -24,15 +24,15 @@ def test_check():
     runner = CliRunner()
     result = runner.invoke(main.check, input='Peter\nPeter')
     assert result.exit_code == 0
-    patt = \
+    pattern = \
         r'Password: \nRepeat for confirmation: \n' \
         r'Your password has been pwned \d+ times.\n'
-    assert re.match(patt, result.output)
+    assert re.match(pattern, result.output)
 
 
 def test_scan(tempfile):
     runner = CliRunner()
     result = runner.invoke(main.scan, [tempfile])
     assert result.exit_code == 0
-    patt = r'Password,Leak Count\ndog,\d+\ncat,\d+\ncuckoo,\d+\n\n'
-    assert re.match(patt, result.output)
+    pattern = r'Password,Leak Count\ndog,\d+\ncat,\d+\ncuckoo,\d+\n\n'
+    assert re.match(pattern, result.output)
