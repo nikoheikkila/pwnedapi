@@ -31,15 +31,6 @@ Your password has been pwned 2 times.
 >>>
 ```
 
-on cli:
-
-```console
-$ pwned check
-Password: ****
-Repeat for confirmation: ****
-Your password has been pwned 2 times.
-```
-
 You can also scan a file of passwords, and export results in any format supported by the [`tablib`][tablib] library.
 
 ```python
@@ -51,7 +42,20 @@ You can also scan a file of passwords, and export results in any format supporte
 '[{"Password": "dog", "Leak Count": 28348}, {"Password": "cat", "Leak Count": 26354}, {"Password": "somepass", "Leak Count": 657}]'
 ```
 
-on cli:
+## CLI Usage
+
+Pwnedapi also install cli command, which you can use to check your password.
+
+To check your password, do the following:
+
+```console
+$ pwned check
+Password: ****
+Repeat for confirmation: ****
+Your password has been pwned 2 times.
+```
+
+To scan a file contain multiple password, do the following:
 
 ```console
 $ pwned scan passwords.txt
