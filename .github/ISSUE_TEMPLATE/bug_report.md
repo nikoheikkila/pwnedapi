@@ -21,9 +21,9 @@ A clear and concise description of what you expected to happen.
 If applicable, add screenshots to help explain your problem.
 
 **Platform (please complete the following information):**
- - OS: [e.g. Ubuntu 18.04, Debian 8, macOS Mojave, Windows 10]
- - Python version
- - Pipenv and/or Pip version
+- OS: [e.g. Ubuntu 18.04, Debian 8, macOS Mojave, Windows 10]
+- Python version
+- Pipenv and/or Pip version
 
 **Additional context**
 Add any other context about the problem here.
