@@ -2,7 +2,6 @@ from tempfile import NamedTemporaryFile
 import re
 
 from click.testing import CliRunner
-import click
 import pytest
 
 from pwnedapi import __main__ as main
