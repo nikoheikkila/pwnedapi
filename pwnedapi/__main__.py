@@ -3,6 +3,7 @@ from typing import Any
 
 from . import Password, Scanner
 
+
 @click.group()
 def cli() -> None:
     pass
@@ -20,7 +21,7 @@ def check(password: Any) -> None:
 @cli.command()
 @click.argument('INPUT_FILE', type=click.File('rb'))
 @click.option('--output-format', help='Output data format.', default='csv')
-def scan(input_file: Any, output_format: str='csv') -> None:
+def scan(input_file: Any, output_format: str = 'csv') -> None:
     "Scan a file for pwned passwords."
     scanner = Scanner()
     scanner.scan(input_file.name)

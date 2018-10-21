@@ -34,6 +34,5 @@ def test_scan(tempfile):
     runner = CliRunner()
     result = runner.invoke(main.scan, [tempfile])
     assert result.exit_code == 0
-    #  assert result.output == 'Hello Peter!\n'
     patt = r'Password,Leak Count\ndog,\d+\ncat,\d+\ncuckoo,\d+\n\n'
     assert re.match(patt, result.output)
