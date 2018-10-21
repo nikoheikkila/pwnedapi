@@ -6,7 +6,7 @@ from . import Password, Scanner
 
 @click.group()
 def cli() -> None:
-    pass
+    pass  # pragma: no cover
 
 
 @cli.command()
