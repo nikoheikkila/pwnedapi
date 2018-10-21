@@ -13,7 +13,7 @@ def check(password):
     "Checks a single password if it has been pwned."
     password = Password(password)
     if password.is_pwned():
-        print(f"Your password has been pwned {password.pwned_count} times.")
+        print("Your password has been pwned {} times.".format(password.pwned_count))
 
 
 @cli.command()
