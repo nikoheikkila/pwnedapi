@@ -3,8 +3,8 @@
 import random
 import string
 import pytest
+import requests
 import responses
-from requests.exceptions import Timeout
 from unittest.mock import patch
 
 from pwnedapi.Password import Password
@@ -77,7 +77,7 @@ class TestPassword():
     def test_request_timeout(self, mock_get):
         """Test that request can fail when timed out."""
 
-        mock_get.side_effect = Timeout
+        mock_get.side_effect = requests.exceptions.Timeout
         with pytest.raises(RequestException, message="API request timed out."):
             password = Password(self.passwords["weak"])
             password.is_pwned()
