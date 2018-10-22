@@ -4,6 +4,7 @@ tablib.formats.json.json = json
 
 from pwnedapi.Password import Password
 from time import sleep
+from typing import Any
 
 
 class Scanner():
@@ -17,7 +18,7 @@ class Scanner():
         self.COLUMNS.extend(extra_cols)
         self.data.headers = self.COLUMNS
 
-    def get_headers(self):
+    def get_headers(self) -> Any:
         return self.data.headers
 
     def export(self, format: str = "csv") -> tablib.Dataset:
@@ -35,7 +36,7 @@ class Scanner():
         with open(output_file, mode) as o:
             o.write(data)
 
-    def scan(self, filename: str, sleep_time: float = 0.2):
+    def scan(self, filename: str, sleep_time: float = 0.2) -> 'Scanner':
         """Scans password data from file.
         WARNING: Depending on the size of the file
         this might take a *long* time depending on the

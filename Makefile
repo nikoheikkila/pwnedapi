@@ -1,11 +1,17 @@
+.PHONY: docs
+
 init:
 	pip install pipenv --upgrade
 	pipenv install --dev --skip-lock
+
+docs:
+	pipenv run mkdocs build
 
 test:
 	PYTHONPATH=$(PWD) pipenv run pytest
 
 lint:
+	pipenv run mypy --strict pwnedapi
 	pipenv run pylama --async
 
 coverage:
