@@ -26,6 +26,7 @@ def tempfile():
 def emptyfile():
     return NamedTemporaryFile().name
 
+
 @responses.activate
 def test_export_as(tempfile):
     dog = Password("dog")
