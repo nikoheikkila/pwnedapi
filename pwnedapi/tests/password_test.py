@@ -95,3 +95,28 @@ class TestPassword():
             password = Password(self.passwords["weak"])
             password.API_URL = self.BAD_URL
             password.is_pwned()
+
+    @responses.activate
+    def test_invalid_api_response(self):
+        """HIBP API returns something unexpected."""
+
+        password = Password(self.passwords["weak"])
+        url = Password.API_URL + password.hashed_password_prefix()
+        # an empty body with an OK status
+        responses.add(
+            responses.GET,
+            url,
+            body="",
+            status=200,
+        )
+        # an unexpected status with a match in the body, just to test status
+        responses.add(
+            responses.GET,
+            url,
+            body="{}:1\r\n".format(password.hashed_password_suffix()),
+            status=500,
+        )
+        with pytest.raises(RequestException, message="API request failed."):
+            password.is_pwned()
+        with pytest.raises(RequestException, message="API request failed."):
+            password.is_pwned()
