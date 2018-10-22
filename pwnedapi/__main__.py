@@ -1,5 +1,4 @@
 import click
-from typing import Any
 
 from . import Password, Scanner
 
@@ -14,7 +13,7 @@ def cli() -> None:
 @click.password_option(help="Password, which will be checked.")
 def check(password: str) -> None:
     "Checks a single password if it has been pwned."
-    password_inst: Password = Password(password)
+    password_inst = Password(password)
     if password_inst.is_pwned():
         print("Your password has been pwned {} times.".format(password_inst.pwned_count))
         if password_inst.pwned_count == 0:
