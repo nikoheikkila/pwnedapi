@@ -8,6 +8,7 @@ from typing import Any
 # this override fixes an incompatability if ujson is installed
 tablib.formats.json.json = json
 
+
 class Scanner():
     """Class for scanning password lists for pwnage."""
 
