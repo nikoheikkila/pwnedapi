@@ -1,5 +1,6 @@
 import json
 import tablib
+# this override fixes an incompatability if ujson is installed
 tablib.formats.json.json = json
 
 from pwnedapi.Password import Password
