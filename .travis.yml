@@ -6,9 +6,15 @@ python:
   - 3.6
   - 3.7
 
+env:
+  - PIPENV_CACHE_DIR=$HOME/.pipenv/cache
+
 install: make
 
 script:
   - make lint
   - make coverage
-cache: pip
+
+cache:
+  directories:
+    - $PIPENV_CACHE_DIR
