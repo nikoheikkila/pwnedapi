@@ -1,5 +1,6 @@
 import re
 from tempfile import NamedTemporaryFile
+from unittest import mock
 
 import pytest
 from click.testing import CliRunner
@@ -27,6 +28,22 @@ def test_check():
     pattern = \
         r'Password: \nRepeat for confirmation: \n' \
         r'Your password has been pwned \d+ times.\n'
+    assert re.match(pattern, result.output)
+
+
+@mock.patch('pwnedapi.__main__.Password')
+def test_check_safe_password(m_password):
+    m_pass_inst = mock.Mock()
+    m_pass_inst.pwned_count = 0
+    m_password.return_value = m_pass_inst
+
+    runner = CliRunner()
+    result = runner.invoke(main.check, input='Peter\nPeter')
+    assert result.exit_code == 0
+    pattern = \
+        r'Password: \nRepeat for confirmation: \n' \
+        r'Your password has been pwned \d+ times.\n' \
+        r'Your password is safe.'
     assert re.match(pattern, result.output)
 
 
