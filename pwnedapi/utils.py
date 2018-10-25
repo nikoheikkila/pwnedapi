@@ -9,7 +9,7 @@ try:
     # if ujson is installed this override is needed to prevent incompatability
     import ujson
     tablib.formats.json.json = json
-except ImportError:
+except:
     pass
 
 
