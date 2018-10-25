@@ -18,7 +18,7 @@ REQUIRES_PYTHON = ">=3.5.0"
 VERSION = None
 
 # Required packages
-REQUIRED = ["requests", "tablib"]
+REQUIRED = ["requests", "tablib", "click"]
 
 here = os.path.abspath(os.path.dirname(__file__))
 
@@ -96,4 +96,5 @@ setup(
         'Programming Language :: Python :: Implementation :: PyPy',
     ],
     cmdclass={"upload": UploadCommand},
+    entry_points={'console_scripts': ['pwned=pwnedapi.__main__:cli', ]},
 )

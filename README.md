@@ -42,6 +42,29 @@ You can also scan a file of passwords, and export results in any format supporte
 '[{"Password": "dog", "Leak Count": 28348}, {"Password": "cat", "Leak Count": 26354}, {"Password": "somepass", "Leak Count": 657}]'
 ```
 
+## CLI Usage
+
+Pwnedapi also install cli command, which you can use to check your password.
+
+To check your password, do the following:
+
+```console
+$ pwned check
+Password: ****
+Repeat for confirmation: ****
+Your password has been pwned 2 times.
+```
+
+To scan a file contain multiple password, do the following:
+
+```console
+$ pwned scan passwords.txt
+Password,Leak Count
+dog,30267
+cat,27732
+cuckoo,2717
+```
+
 ## Contributing
 
 Check the source code and issues from this repository, and should anything interesting pop out feel free to open a pull request. Before your changes will be merged make sure that Travis CI pipeline is green and code coverage is on acceptable level. GitHub takes care of these eventually but to save time always consider running the tests locally before pushing.
