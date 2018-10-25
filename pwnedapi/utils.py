@@ -5,12 +5,8 @@ from time import sleep
 from typing import Any
 
 
-try:
-    # if ujson is installed this override is needed to prevent incompatability
-    import ujson
-    tablib.formats.json.json = json
-except:
-    pass
+# this override fixes an incompatability if ujson is installed
+tablib.formats.json.json = json
 
 
 class Scanner():
