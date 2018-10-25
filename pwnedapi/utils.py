@@ -1,6 +1,4 @@
-import json
 import tablib
-tablib.formats.json.json = json
 
 from pwnedapi.Password import Password
 from time import sleep
