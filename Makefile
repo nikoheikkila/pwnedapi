@@ -8,14 +8,16 @@ docs:
 	pipenv run mkdocs build
 
 test:
-	PYTHONPATH=$(PWD) pipenv run pytest
+	PYTHONPATH=$(PWD) pipenv run pytest --workers $(shell nproc)
 
 lint:
 	pipenv run mypy --strict pwnedapi
 	pipenv run pylama --async
 
 coverage:
-	PYTHONPATH=$(PWD) pipenv run pytest --cov-config .coveragerc --verbose --cov-report term --cov-report xml --cov-report html --cov=pwnedapi
+	PYTHONPATH=$(PWD) pipenv run pytest --cov-config .coveragerc \
+		--cov-report term --cov-report xml --cov-report html \
+		--cov=pwnedapi --workers $(shell nproc)
 	codecov --required
 
 publish:
