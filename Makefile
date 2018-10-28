@@ -5,7 +5,8 @@ init:
 	pipenv install --dev --skip-lock
 
 docs:
-	pipenv run mkdocs build
+	pipenv run mkdocs build --strict
+	@echo "INFO	-  Run 'python3 -m http.server -d site/' to preview."
 
 test:
 	PYTHONPATH=$(PWD) pipenv run pytest
