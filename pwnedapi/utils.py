@@ -1,5 +1,4 @@
 import tablib
-
 from pwnedapi.Password import Password
 from time import sleep
 from typing import Any

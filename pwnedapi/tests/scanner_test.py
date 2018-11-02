@@ -1,8 +1,10 @@
 import pytest
 import json
 import os
+import responses
 
 from tempfile import NamedTemporaryFile
+from pwnedapi.Password import Password
 from pwnedapi.utils import Scanner
 
 
@@ -25,11 +27,23 @@ def emptyfile():
     return NamedTemporaryFile().name
 
 
+@responses.activate
 def test_export_as(tempfile):
+    # set up a match response for each password to be scanned
+    for word in PASSWORDS:
+        password = Password(word)
+        responses.add(
+            responses.GET,
+            url=Password.API_URL + password.hashed_password_prefix(),
+            body="{}:1\r\n".format(password.hashed_password_suffix()),
+            status=200,
+        )
     scanner = Scanner()
     results = scanner.scan(tempfile).data
 
+    # three matches found
     assert results.height == 3
+    # password and count
     assert results.width == 2
 
     export_file = "test.json"
