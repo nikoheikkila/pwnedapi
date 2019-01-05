@@ -1,7 +1,7 @@
 import tablib
 from pwnedapi.Password import Password
 from time import sleep
-from typing import Any
+from typing import Any, List
 
 
 class Scanner():
@@ -10,7 +10,7 @@ class Scanner():
     COLUMNS = ["Password", "Leak Count"]
     BINARY_FORMATS = ["csv", "dbf", "ods", "xls", "xlsx"]
 
-    def __init__(self, extra_cols: list = []) -> None:
+    def __init__(self, extra_cols: List[str] = []) -> None:
         self.data = tablib.Dataset()
         self.COLUMNS.extend(extra_cols)
         self.data.headers = self.COLUMNS
