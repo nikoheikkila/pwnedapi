@@ -36,7 +36,7 @@ class TestPassword():
 
         with pytest.raises(
             PasswordException,
-            message="Password must be a string."
+            match="Password must be a string."
         ):
             Password(self.passwords["integers"])
 
@@ -78,7 +78,7 @@ class TestPassword():
         """Test that request can fail when timed out."""
 
         mock_get.side_effect = requests.exceptions.Timeout
-        with pytest.raises(RequestException, message="API request timed out."):
+        with pytest.raises(RequestException, match="API request timed out."):
             password = Password(self.passwords["weak"])
             password.is_pwned()
 
@@ -91,7 +91,7 @@ class TestPassword():
             self.BAD_URL,
             status=404,
         )
-        with pytest.raises(RequestException, message="API request failed."):
+        with pytest.raises(RequestException, match="API request failed."):
             password = Password(self.passwords["weak"])
             password.API_URL = self.BAD_URL
             password.is_pwned()
@@ -116,7 +116,7 @@ class TestPassword():
             body="{}:1\r\n".format(password.hashed_password_suffix()),
             status=500,
         )
-        with pytest.raises(RequestException, message="API request failed."):
+        with pytest.raises(RequestException, match="API request failed."):
             password.is_pwned()
-        with pytest.raises(RequestException, message="API request failed."):
+        with pytest.raises(RequestException, match="API request failed."):
             password.is_pwned()

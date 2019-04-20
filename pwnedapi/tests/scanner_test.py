@@ -61,7 +61,7 @@ def test_export_as(tempfile):
 def test_scan_empty_file(emptyfile):
     scanner = Scanner()
 
-    with pytest.raises(OSError, message="File {} is empty.".format(emptyfile)):
+    with pytest.raises(FileNotFoundError, match='No such file or directory: .*'):
         scanner.scan(emptyfile)
 
 
