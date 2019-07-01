@@ -1,6 +1,7 @@
 import click
 
-from . import Password, Scanner
+from .Password import Password
+from .utils import Scanner
 
 
 @click.group()
@@ -15,7 +16,8 @@ def check(password: str) -> None:
     "Checks a single password if it has been pwned."
     password_inst = Password(password)
     if password_inst.is_pwned():
-        print("Your password has been pwned {} times.".format(password_inst.pwned_count))
+        print("Your password has been pwned {} times.".format(
+            password_inst.pwned_count))
         if password_inst.pwned_count == 0:
             print("Your password is safe.")
 
