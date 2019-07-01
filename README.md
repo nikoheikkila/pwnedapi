@@ -12,7 +12,11 @@
 A Python library to leverage **Troy Hunt's** [_Have I Been Pwned API v2_][hibp]
 and the _k-Anonymity_ model. Inspired by **Phil Nash's** Ruby gem [_pwned_][pwned].
 
-Supported on Python versions 3.5 and up.
+## Support
+
+This library is supported on Python versions 3.5 and up. Some development packages
+require Python 3.6 or newer so issues regarding the development environment compatibility
+should not be reported without first attempting to install newer version of Python.
 
 ## Installation
 
