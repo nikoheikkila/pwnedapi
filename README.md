@@ -14,6 +14,8 @@ and the _k-Anonymity_ model. Inspired by **Phil Nash's** Ruby gem [_pwned_][pwne
 
 ## Support
 
+> **[Have I Been Pwned API has shifted from a free product to paid](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/) which means I'm not able to maintain it anymore. This repository has therefore been archived. If you would like to migrate this project to v3 of the API, I'm happy to transfer this project and help with any issues that might arise.**
+
 This library is supported on Python versions 3.5 and up. Some development packages
 require Python 3.6 or newer so issues regarding the development environment compatibility
 should not be reported without first attempting to install newer version of Python.
