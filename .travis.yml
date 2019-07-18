@@ -17,6 +17,7 @@ install: make
 script:
   - make lint
   - make coverage
+  - make docs
 
 cache:
   directories:
